@@ -12,37 +12,77 @@
 		</div>
 
 		<!-- Tab links, each one with an onclick event associated with it -->
-		<div class="tab">
-		  <button class="tablinks" onclick="openInfo(event, 'Client')">Client</button>
+<!-- 		<div class="tab">
+		  <button class="tablinks" onclick="openInfo(event, 'Products')">Products</button>
 		  <button class="tablinks" onclick="openInfo(event, 'Products')">Products</button>
 		  <button class="tablinks" onclick="openInfo(event, 'Cart')">Cart</button>
+		</div> -->
+
+		<div id="mySidenav" class="sidenav">
+		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		  <a class="tablinks" onclick="openInfo(event, 'Client')">Client</a>
+		  <a class="tablinks" onclick="openInfo(event, 'Products')">Products</a>
+		  <a class="tablinks" onclick="openInfo(event, 'Cart')">Cart</a>
 		</div>
+		<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+
 
 		<!-- Tab content -->
 		<div id="Client" class="tabcontent">
 		  <h3>Client Information</h3>
 		  <p>Tell us a bit about you.</p>
-			Choose a Category:
-			<select id="dietSelect" name="dietSelect" onchange="populateListProductChoices(this.id, 'displayProduct')">
-			<option value=""></option>
-			<option value="Vegetarian">Vegetarian</option>
-		    <option value="GlutenFree">GlutenFree</option>
-		    <option value="VegetarianAndGlutenFree">Vegetarian and Gluten Free</option>
-		    <option value="Organic">Organic</option>
-		    <option value="VegetarianAndOrganic">Vegetarian and Organic</option>
-		    <option value="GlutenFreeAndOrganic">Gluten Free and Organic</option>
-		    <option value="VegetarianAndGlutenFreeAndOrganic">Vegetarian, Gluten Free and Organic</option>
-		    <option value="None">None</option>
-			</select>
-		</div>
+			Plase choose your dietary preference!:
+
+			<br>
+			<br>
+ 			<input type="radio" name="radio" value="Vegetarian" onclick="populateListProductChoices(this.value)">Vegetarian<br>
+
+  			<input type="radio" name="radio" value="GlutenFree" onclick="populateListProductChoices(this.value)">Gluten Free<br>
+
+  			<input type="radio" name="radio" value="VegetarianAndGlutenFree" onclick="populateListProductChoices(this.value)">Vegetarian and Gluten Free<br>
+
+  			<input type="radio" name="radio" value="Organic" onclick="populateListProductChoices(this.value)">Organic<br>
+
+  			<input type="radio" name="radio" value="VegetarianAndOrganic" onclick="populateListProductChoices(this.value)">Vegetarian and Organic<br>
+
+  			<input type="radio" name="radio" value="GlutenFreeAndOrganic" onclick="populateListProductChoices(this.value)">Gluten Free and Organic<br>
+
+  			<input type="radio" name="radio" value="VegetarianAndGlutenFreeAndOrganic" onclick="populateListProductChoices(this.value)">Vegetarian, Gluten Free and Organic<br>
+
+  			<input type="radio" name="radio" value="None" onclick="populateListProductChoices(this.value)">No Preference<br>
+
+ 		</div>
 
 		<div id="Products" class="tabcontent">
-		  <h3>Your targeted products</h3>
-		  <p>We preselected products based on your restrictions.</p>
-			 Choose items to buy:
+		  <h3>Products that match your preference</h3>
+		  <p>We selected products based on your dietary preferences blow!</p>
+			 Select items to purchase:
+
+			 <!-- this accordian is taken from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_accordion -->
+
+			 <button class="accordion">Fruits and Vegetables</button>
+			 <div class="panel" id="fruitveg">
+			 </div>
+
+			 <button class="accordion">Bread and Cereals</button>
+			 <div class="panel" id="breadcereals">
+			 </div>
+
+			 <button class="accordion">Protein</button>
+			 <div class="panel" id="protein">
+			 </div>
+
+			 <button class="accordion">Snacks</button>
+			 <div class="panel" id="snacks">
+			 </div>
+
+			 <button class="accordion">Cooking Supplies</button>
+			 <div class="panel" id="supplies">
+			 </div>
+
 			 <div id="displayProduct"></div>
 			 <button id="addCart" type="button" class="block" onclick="selectedItems()">
-				Add selected items to cart.
+				Add selected items to your cart.
 			</button>
 		</div>
 
@@ -55,7 +95,7 @@
 		<script src="scripts/groceries.js"></script>
 		<script src="scripts/main.js"></script>
 
-		<footer id = "footer">
+		<footer>
 		  <p>Website designed by Kartik Singhal</p>
 		</footer>
 
